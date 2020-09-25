@@ -1,0 +1,35 @@
+Fibonacci cutoff generator for Gecode RBS meta-engine.
+
+
+Copyright (C) 2020 Alexis LE GOADEC.
+
+Licensed under the European Union Public License v1.2
+https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
+
+---
+Install
+
+| cmake CMakeLists.txt
+| make
+| make install
+
+---
+Usage:
+
+| #include <cutofffibonacci/CutoffFibonacci.hpp>
+| ...
+| Gecode::Search::Options opt;
+| opt.cutoff = new CutoffFibonacci();
+
+---
+Requirements:
+
+  - C++17+ Compiler
+  - Criterion
+  - CMake
+  - Gecode (6.2.0 minimum)
+
+---
+Reference:
+
+Cutoff generators description - https://www.gecode.org/doc-latest/MPG.pdf#subsection.9.4.2
