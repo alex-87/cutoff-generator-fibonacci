@@ -16,7 +16,7 @@
 
 
 /**
- * Cutoff generator following the Fibonnaci sequence.
+ * Cutoff generator following the Fibonacci sequence.
  * To be used within the Gecode::Search::RBS meta-engine.
  */
 class CutoffFibonacci : public Gecode::Search::Cutoff {
