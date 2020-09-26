@@ -1,5 +1,5 @@
 language: cpp
-dist: bionic
+dist: focal
 sudo: true
 
 matrix:
@@ -7,29 +7,28 @@ matrix:
     - compiler: gcc
       addons:
         apt:
-          sources:
-            - ubuntu-toolchain-r-test
           packages:
             - cmake
-            - gcc-10
-            - g++-10
+            - gcc
+            - g++
             - wget
+            - libmpfr-dev
+            - libgecode-dev
       env:
-        - COMPILER=g++-10
-        - CC_COMPILER=gcc-10
+        - COMPILER=g++
+        - CC_COMPILER=gcc
     - compiler: clang
       addons:
         apt:
-          sources:
-            - ubuntu-toolchain-r-test
-            - llvm-toolchain-precise-10
           packages:
             - cmake
-            - clang-10
+            - clang
             - wget
+            - libmpfr-dev
+            - libgecode-dev
       env:
-        - COMPILER=clang++-10
-        - CC_COMPILER=clang-10
+        - COMPILER=clang++
+        - CC_COMPILER=clang
         - CXXFLAGS="-w"
 
 branches:
@@ -40,7 +39,6 @@ before_script:
   - export CC=$CC_COMPILER
   - export CXX=$COMPILER
   - wget https://github.com/Snaipe/Criterion/releases/download/v2.3.3/criterion-v2.3.3.tar.bz2 && tar xaf criterion-v2.3.3.tar.bz2 && cd criterion-v2.3.3 && cmake CMakeLists.txt && make && sudo make install && sudo ldconfig && cd ..
-  - wget https://github.com/Gecode/gecode/archive/release-6.2.0.tar.gz && tar xaf release-6.2.0.tar.gz && cd gecode-release-6.2.0 && ./configure --disable-qt --disable-gist --disable-flatzinc --disable-examples --disable-cpprofiler --disable-driver --enable-mpfr && make && sudo make install && sudo ldconfig && cd ..
 
 script:
   - cmake CMakeLists.txt -DCOF_BUILD_TESTS=ON
