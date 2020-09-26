@@ -39,7 +39,7 @@ before_script:
   - export CC=$CC_COMPILER
   - export CXX=$COMPILER
   - wget https://github.com/Snaipe/Criterion/releases/download/v2.3.3/criterion-v2.3.3.tar.bz2 && tar xaf criterion-v2.3.3.tar.bz2 && cd criterion-v2.3.3 && cmake CMakeLists.txt && make && sudo make install && sudo ldconfig && cd ..
-  - wget https://github.com/Gecode/gecode/archive/release-6.2.0.tar.gz && tar xaf release-6.2.0.tar.gz && cd gecode-release-6.2.0 && ./configure --disable-qt --disable-gist --disable-flatzinc --disable-examples --disable-cpprofiler --disable-driver --enable-mpfr && make -j && sudo make install && sudo ldconfig && cd ..
+  - wget https://github.com/Gecode/gecode/archive/release-6.2.0.tar.gz && tar xaf release-6.2.0.tar.gz && cd gecode-release-6.2.0 && ./configure --disable-qt --disable-gist --disable-flatzinc --disable-examples --disable-cpprofiler --disable-driver --enable-mpfr && make && sudo make install && sudo ldconfig && cd ..
 
 script:
   - cmake CMakeLists.txt -DCOF_BUILD_TESTS=ON
